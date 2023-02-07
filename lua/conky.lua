@@ -26,35 +26,135 @@ local function render_ring(cr, center_x, center_y, radius, thickness, angle_star
 end
 
 local function draw_ring(cr,t,pt)
-    local angle_0 = pt['start_angle'] * (2 * math.pi / 360) - math.pi / 2
-    local angle_f = pt['end_angle'] * ( 2 * math.pi / 360) - math.pi / 2
+    local angle_0 = pt['angle']['start'] * (2 * math.pi / 360) - math.pi / 2
+    local angle_f = pt['angle']['stop'] * ( 2 * math.pi / 360) - math.pi / 2
     local t_arc= t * (angle_f - angle_0)
 
-    render_ring(cr, pt['x'], pt['y'], pt['radius'], pt['thickness'], angle_0, angle_f, hex_to_rgba(pt['bg_color'], pt['bg_alpha']))
-    render_ring(cr, pt['x'], pt['y'], pt['radius'], pt['thickness'], angle_0, angle_0 + t_arc, hex_to_rgba(pt['fg_color'], pt['fg_alpha']))
+    render_ring(
+        cr,
+        pt['center']['x'],
+        pt['center']['y'],
+        pt['radius'],
+        pt['thickness'],
+        angle_0,
+        angle_f,
+        hex_to_rgba(pt['background']['color'], pt['background']['alpha'])
+    )
+    render_ring(
+        cr,
+        pt['center']['x'],
+        pt['center']['y'],
+        pt['radius'],
+        pt['thickness'],
+        angle_0,
+        angle_0 + t_arc,
+        hex_to_rgba(pt['foreground']['color'], pt['foreground']['alpha'])
+    )
+end
+
+local function calc_percent(prop, arg, max)
+    local tmpl = string.format('${%s %s}', prop, arg)
+    local str = conky_parse(tmpl)
+    local value = tonumber(str)
+    local pct = value / max
+
+    return pct
+end
+
+local function clock_rings(cr)
+    local config = {
+        hour = {
+            radius = 80,
+            thickness = 5,
+            data = {
+                prop = 'time',
+                arg = '%H',
+                max = 60
+            },
+            center = {
+                x = 1675,
+                y = 175
+            },
+            foreground = {
+                color = 0x34cdff,
+                alpha = 0.8
+            },
+            background = {
+                color = 0x3b3b3b,
+                alpha = 0.8
+            },
+            angle = {
+                start = 0,
+                stop = 360
+            }
+        },
+        minutes = {
+            radius = 70,
+            thickness = 5,
+            data = {
+                prop = 'time',
+                arg = '%M',
+                max = 60
+            },
+            center = {
+                x = 1675,
+                y = 175
+            },
+            foreground = {
+                color = 0x34cdff,
+                alpha = 0.8
+            },
+            background = {
+                color = 0x3b3b3b,
+                alpha = 0.8
+            },
+            angle = {
+                start = 0,
+                stop = 360
+            }
+        },
+        seconds = {
+            radius = 60,
+            thickness = 5,
+            data = {
+                prop = 'time',
+                arg = '%S',
+                max = 60
+            },
+            center = {
+                x = 1675,
+                y = 175
+            },
+            foreground = {
+                color = 0x34cdff,
+                alpha = 0.8
+            },
+            background = {
+                color = 0x3b3b3b,
+                alpha = 0.8
+            },
+            angle = {
+                start = 0,
+                stop = 360
+            }
+        },
+    }
+
+    for key, value in pairs(config) do
+        local pct = calc_percent(
+            value['data']['prop'],
+            value['data']['arg'],
+            value['data']['max']
+        )
+
+        draw_ring(cr, pct, value)
+    end
 end
 
 function conky_main()
-   local t = {
-        name='time',
-        arg='%S',
-        max=60,
-        bg_color=0x3b3b3b,
-        bg_alpha=0.8,
-        fg_color=0x34cdff,
-        fg_alpha=0.8,
-        x=1530,
-        y=410,
-        radius=30,
-        thickness=12,
-        start_angle=0,
-        end_angle=240
-    }
-
     if conky_window == nil then
         return
     end
-
 
     local cs = cairo_xlib_surface_create(
         conky_window.display,
@@ -70,12 +170,7 @@ function conky_main()
     local update_num = tonumber(updates)
 
     if update_num > 5 then
-        local tmpl = string.format('${%s %s}', t['name'], t['arg'])
-        local str = conky_parse(tmpl)
-        local value = tonumber(str)
-        local pct = value / t['max']
-
-        draw_ring(cr, pct, t)
+        clock_rings(cr)
     end
     
     cairo_destroy(cr)
