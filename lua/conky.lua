@@ -27,30 +27,56 @@ local function render_ring(cr, center_x, center_y, radius, thickness, angle_star
     cairo_close_path(cr)
 end
 
-local function draw_ring(cr,t,pt)
-    local angle_0 = pt['angle']['start'] * (2 * math.pi / 360) - math.pi / 2
-    local angle_f = pt['angle']['stop'] * ( 2 * math.pi / 360) - math.pi / 2
-    local t_arc= t * (angle_f - angle_0)
+local function render_text(cr, text, position, color)
+    cairo_select_font_face(
+        cr,
+        'ProFontIIx Nerd Font Mono',
+        CAIRO_FONT_SLANT_NORMAL,
+        CAIRO_FONT_WEIGHT_NORMAL
+    )
+    cairo_set_font_size(cr, 24)
+    cairo_set_source_rgba(
+        cr,
+        color.r,
+        color.g,
+        color.b,
+        color.a
+    )
+    cairo_move_to(cr, position['x'], position['y'])
+    cairo_show_text(cr, text)
+    cairo_stroke(cr)
+end
+
+local function degrees_to_radians(degrees)
+    local radians = degrees * (2 * math.pi / 360) - math.pi / 2
+
+    return radians
+end
+
+local function setup_ring(cr, value, config)
+    local angle_start = degrees_to_radians(config['angle']['start'])
+    local angle_max = degrees_to_radians(config['angle']['stop'])
+    local angle_end = value * (angle_max - angle_start) + angle_start
 
     render_ring(
         cr,
-        pt['center']['x'],
-        pt['center']['y'],
-        pt['radius'],
-        pt['thickness'],
-        angle_0,
-        angle_f,
-        hex_to_rgba(pt['background']['color'], pt['background']['alpha'])
+        config['center']['x'],
+        config['center']['y'],
+        config['radius'],
+        config['thickness'],
+        angle_start,
+        angle_max,
+        hex_to_rgba(config['background']['color'], config['background']['alpha'])
     )
     render_ring(
         cr,
-        pt['center']['x'],
-        pt['center']['y'],
-        pt['radius'],
-        pt['thickness'],
-        angle_0,
-        angle_0 + t_arc,
-        hex_to_rgba(pt['foreground']['color'], pt['foreground']['alpha'])
+        config['center']['x'],
+        config['center']['y'],
+        config['radius'],
+        config['thickness'],
+        angle_start,
+        angle_end,
+        hex_to_rgba(config['foreground']['color'], config['foreground']['alpha'])
     )
 end
 
@@ -142,35 +168,15 @@ local function clock_rings(cr)
         },
     }
 
-    for key, value in pairs(config) do
-        local pct = calc_percent(
-            value['data']['prop'],
-            value['data']['arg'],
-            value['data']['max']
+    for key, part in pairs(config) do
+        local percent = calc_percent(
+            part['data']['prop'],
+            part['data']['arg'],
+            part['data']['max']
         )
 
-        draw_ring(cr, pct, value)
+        setup_ring(cr, percent, part)
     end
-end
-
-local function render_text(cr, text, color)
-    cairo_select_font_face(
-        cr,
-        'ProFontIIx Nerd Font Mono',
-        CAIRO_FONT_SLANT_NORMAL,
-        CAIRO_FONT_WEIGHT_NORMAL
-    )
-    cairo_set_font_size(cr, 24)
-    cairo_set_source_rgba(
-        cr,
-        color.r,
-        color.g,
-        color.b,
-        color.a
-    )
-    cairo_move_to(cr, 80, 160)
-    cairo_show_text(cr, text)
-    cairo_stroke(cr)
 end
 
 function conky_main()
@@ -192,8 +198,8 @@ function conky_main()
     local update_num = tonumber(updates)
 
     if update_num > 5 then
-        --clock_rings(cr)
-        render_text(cr, '08:23', hex_to_rgba(0xffffff, 0.8))
+        clock_rings(cr)
+        --render_text(cr, '08:23', hex_to_rgba(0xffffff, 0.8))
     end
     
     cairo_destroy(cr)
