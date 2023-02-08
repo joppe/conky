@@ -11,6 +11,7 @@ local function hex_to_rgba(color, alpha)
 end
 
 local function render_ring(cr, center_x, center_y, radius, thickness, angle_start, angle_end, color)
+    cairo_new_sub_path(cr)
     cairo_arc(
         cr,
         center_x,
@@ -23,6 +24,7 @@ local function render_ring(cr, center_x, center_y, radius, thickness, angle_star
     cairo_set_source_rgba(cr, color.r, color.g, color.b, color.a)
     cairo_set_line_width(cr, thickness)
     cairo_stroke(cr)
+    cairo_close_path(cr)
 end
 
 local function draw_ring(cr,t,pt)
@@ -151,6 +153,26 @@ local function clock_rings(cr)
     end
 end
 
+local function render_text(cr, text, color)
+    cairo_select_font_face(
+        cr,
+        'ProFontIIx Nerd Font Mono',
+        CAIRO_FONT_SLANT_NORMAL,
+        CAIRO_FONT_WEIGHT_NORMAL
+    )
+    cairo_set_font_size(cr, 24)
+    cairo_set_source_rgba(
+        cr,
+        color.r,
+        color.g,
+        color.b,
+        color.a
+    )
+    cairo_move_to(cr, 80, 160)
+    cairo_show_text(cr, text)
+    cairo_stroke(cr)
+end
+
 function conky_main()
     if conky_window == nil then
         return
@@ -170,7 +192,8 @@ function conky_main()
     local update_num = tonumber(updates)
 
     if update_num > 5 then
-        clock_rings(cr)
+        --clock_rings(cr)
+        render_text(cr, '08:23', hex_to_rgba(0xffffff, 0.8))
     end
     
     cairo_destroy(cr)
