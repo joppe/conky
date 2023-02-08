@@ -1,9 +1,47 @@
 require 'lua/conky'
 
+local colors = {
+    highlight = 0x34cdff,
+    normal = 0xffffff,
+    background = 0x3b3b3b
+}
+
 local function clock_widget(cr)
-    local config = {
-        hour = {
-            radius = 80,
+    local text = {
+        hours = {
+            size = 38,
+            data = {
+                prop = 'time',
+                arg = '%H',
+            },
+            position = {
+                x = 1622,
+                y = 184
+            },
+            foreground = {
+                color = colors.normal,
+                alpha = 0.8
+            }
+        },
+        minute = {
+            size = 38,
+            data = {
+                prop = 'time',
+                arg = '%M',
+            },
+            position = {
+                x = 1684,
+                y = 184
+            },
+            foreground = {
+                color = colors.highlight,
+                alpha = 0.8
+            }
+        }
+    }
+    local rings = {
+        hours = {
+            radius = 95,
             thickness = 5,
             data = {
                 prop = 'time',
@@ -15,11 +53,11 @@ local function clock_widget(cr)
                 y = 175
             },
             foreground = {
-                color = 0x34cdff,
+                color = colors.highlight,
                 alpha = 0.8
             },
             background = {
-                color = 0x3b3b3b,
+                color = colors.background,
                 alpha = 0.8
             },
             angle = {
@@ -28,7 +66,7 @@ local function clock_widget(cr)
             }
         },
         minutes = {
-            radius = 70,
+            radius = 85,
             thickness = 5,
             data = {
                 prop = 'time',
@@ -40,11 +78,11 @@ local function clock_widget(cr)
                 y = 175
             },
             foreground = {
-                color = 0x34cdff,
+                color = colors.highlight,
                 alpha = 0.8
             },
             background = {
-                color = 0x3b3b3b,
+                color = colors.background,
                 alpha = 0.8
             },
             angle = {
@@ -53,7 +91,7 @@ local function clock_widget(cr)
             }
         },
         seconds = {
-            radius = 60,
+            radius = 75,
             thickness = 5,
             data = {
                 prop = 'time',
@@ -65,11 +103,11 @@ local function clock_widget(cr)
                 y = 175
             },
             foreground = {
-                color = 0x34cdff,
+                color = colors.highlight,
                 alpha = 0.8
             },
             background = {
-                color = 0x3b3b3b,
+                color = colors.background,
                 alpha = 0.8
             },
             angle = {
@@ -79,7 +117,8 @@ local function clock_widget(cr)
         },
     }
 
-    setup_rings(cr, config)
+    setup_rings(cr, rings)
+    setup_texts(cr, text)
 end
 
 function conky_main()
@@ -102,7 +141,6 @@ function conky_main()
 
     if update_num > 5 then
         clock_widget(cr)
-        render_text(cr, '08:23', 26, { x = 100, y = 100 }, hex_to_rgba(0xffffff, 0.8))
     end
     
     cairo_destroy(cr)

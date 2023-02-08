@@ -60,3 +60,27 @@ function setup_rings(cr, configs)
     end
 end
 
+function setup_text(cr, config)
+    local text = get_value(
+        config['data']['prop'],
+        config['data']['arg']
+    )
+
+    render_text(
+        cr,
+        text,
+        config.size,
+        config.position,
+        hex_to_rgba(
+            config['foreground']['color'],
+            config['foreground']['alpha']
+        )
+    )
+end
+
+function setup_texts(cr, configs)
+    for key, config in pairs(configs) do
+       setup_text(cr, config)
+    end
+end
+
