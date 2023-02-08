@@ -5,11 +5,15 @@ local colors = {
     normal = 0xffffff,
     background = 0x3b3b3b
 }
+local fonts = {
+    normal = 'ProFontIIx Nerd Font Mono'
+}
 
 local function clock_widget(cr)
     local text = {
         hours = {
             size = 38,
+            font = fonts.normal,
             data = {
                 prop = 'time',
                 arg = '%H',
@@ -25,6 +29,7 @@ local function clock_widget(cr)
         },
         minute = {
             size = 38,
+            font = fonts.normal,
             data = {
                 prop = 'time',
                 arg = '%M',

@@ -14,34 +14,30 @@ local function get_value(prop, arg)
 end
 
 function setup_ring(cr, value, config)
-    local angle_start = degrees_to_radians(config['angle']['start'])
-    local angle_max = degrees_to_radians(config['angle']['stop'])
+    local angle_start = degrees_to_radians(config.angle.start)
+    local angle_max = degrees_to_radians(config.angle.stop)
     local angle_end = value * (angle_max - angle_start) + angle_start
 
     render_ring(
         cr,
-        config['center']['x'],
-        config['center']['y'],
-        config['radius'],
-        config['thickness'],
-        angle_start,
-        angle_max,
+        config.center,
+        config.radius,
+        config.thickness,
+        { start = angle_start, stop = angle_max },
         hex_to_rgba(
-            config['background']['color'],
-            config['background']['alpha']
+            config.background.color,
+            config.background.alpha
         )
     )
     render_ring(
         cr,
-        config['center']['x'],
-        config['center']['y'],
-        config['radius'],
-        config['thickness'],
-        angle_start,
-        angle_end,
+        config.center,
+        config.radius,
+        config.thickness,
+        { start = angle_start, stop = angle_end },
         hex_to_rgba(
-            config['foreground']['color'],
-            config['foreground']['alpha']
+            config.foreground.color,
+            config.foreground.alpha
         )
     )
 end
@@ -50,10 +46,10 @@ function setup_rings(cr, configs)
     for key, config in pairs(configs) do
         local percent = calc_percent(
             get_value(
-                config['data']['prop'],
-                config['data']['arg']
+                config.data.prop,
+                config.data.arg
             ),
-            config['data']['max']
+            config.data.max
         )
 
         setup_ring(cr, percent, config)
@@ -62,18 +58,19 @@ end
 
 function setup_text(cr, config)
     local text = get_value(
-        config['data']['prop'],
-        config['data']['arg']
+        config.data.prop,
+        config.data.arg
     )
 
     render_text(
         cr,
         text,
+        config.font,
         config.size,
         config.position,
         hex_to_rgba(
-            config['foreground']['color'],
-            config['foreground']['alpha']
+            config.foreground.color,
+            config.foreground.alpha
         )
     )
 end
