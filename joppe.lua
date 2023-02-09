@@ -1,4 +1,13 @@
 require 'lua/clock'
+require 'lua/date'
+
+local function calendar_widget(cr)
+    local file = io.popen('node ./node/calendar.js')
+    local output = file:read('*a')
+
+    file:close()
+    print(output)
+end
 
 function conky_main()
     if conky_window == nil then
@@ -20,6 +29,8 @@ function conky_main()
 
     if update_num > 5 then
         clock_widget(cr)
+        date_widget(cr)
+        calendar_widget(cr)
     end
     
     cairo_destroy(cr)

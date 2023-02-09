@@ -45,7 +45,7 @@ function clock_widget(cr)
             data = {
                 prop = 'time',
                 arg = '%H',
-                max = 60
+                max = 24
             },
             center = {
                 x = 1675,
@@ -116,8 +116,8 @@ function clock_widget(cr)
         },
     }
 
-    text.hours.data.value = os.date("%H")
-    text.minutes.data.value = os.date("%M")
+    text.hours.data.value = os.date(text.hours.data.arg)
+    text.minutes.data.value = os.date(text.minutes.data.arg)
 
     setup_rings(cr, rings)
     setup_texts(cr, text)
