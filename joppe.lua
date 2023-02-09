@@ -17,6 +17,7 @@ local function clock_widget(cr)
             data = {
                 prop = 'time',
                 arg = '%H',
+                value = nil
             },
             position = {
                 x = 1622,
@@ -27,12 +28,13 @@ local function clock_widget(cr)
                 alpha = 0.8
             }
         },
-        minute = {
+        minutes = {
             size = 38,
             font = fonts.normal,
             data = {
                 prop = 'time',
                 arg = '%M',
+                value = nil
             },
             position = {
                 x = 1684,
@@ -121,6 +123,9 @@ local function clock_widget(cr)
             }
         },
     }
+
+    text.hours.data.value = os.date("%H")
+    text.minutes.data.value = os.date ("%M")
 
     setup_rings(cr, rings)
     setup_texts(cr, text)

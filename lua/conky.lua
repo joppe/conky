@@ -13,7 +13,14 @@ local function get_value(prop, arg)
     return value
 end
 
-function setup_ring(cr, value, config)
+function setup_ring(cr, config)
+    local value = config.data.value or calc_percent(
+        get_value(
+            config.data.prop,
+            config.data.arg
+        ),
+        config.data.max
+    )
     local angle_start = degrees_to_radians(config.angle.start)
     local angle_max = degrees_to_radians(config.angle.stop)
     local angle_end = value * (angle_max - angle_start) + angle_start
@@ -44,20 +51,12 @@ end
 
 function setup_rings(cr, configs)
     for key, config in pairs(configs) do
-        local percent = calc_percent(
-            get_value(
-                config.data.prop,
-                config.data.arg
-            ),
-            config.data.max
-        )
-
-        setup_ring(cr, percent, config)
+        setup_ring(cr, config)
     end
 end
 
 function setup_text(cr, config)
-    local text = get_value(
+    local text = config.data.value or get_value(
         config.data.prop,
         config.data.arg
     )
