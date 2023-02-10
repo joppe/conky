@@ -1,4 +1,4 @@
-require 'lua/conky'
+require 'lua/lib/conky'
 require 'lua/settings'
 
 function date_widget(cr)

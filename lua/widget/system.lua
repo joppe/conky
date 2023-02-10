@@ -1,5 +1,5 @@
 require 'lua/settings'
-require 'lua/render'
+require 'lua/lib/render'
 
 local function render_table(cr, texts, font, size, position, color, gap)
     local new_position = { x = position.x, y = position.y }

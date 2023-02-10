@@ -1,5 +1,5 @@
-require 'lua/util'
-require 'lua/render'
+require 'lua/lib/util'
+require 'lua/lib/render'
 
 local function get_value(prop, arg)
     local tmpl = string.format(

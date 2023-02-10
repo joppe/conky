@@ -1,4 +1,4 @@
-local json = require 'lua/json'
+local json = require 'lua/lib/json'
 local cache = {}
 local update_interval = 60
 
