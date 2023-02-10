@@ -1,3 +1,4 @@
 node/node_modules
-node/google-api.json
+node/credentials.json
+node/secrets.json
 

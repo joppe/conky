@@ -16,11 +16,6 @@ const GOOGLE_CLIENT_EMAIL = credentials.client_email;
 const GOOGLE_PROJECT_NUMBER = secrets.project_id;
 const GOOGLE_CALENDAR_ID = secrets.calendar_id;
 
-console.log(GOOGLE_PRIVATE_KEY);
-console.log(GOOGLE_CLIENT_EMAIL);
-console.log(GOOGLE_PROJECT_NUMBER);
-console.log(GOOGLE_CALENDAR_ID);
-
 const jwtClient = new google.auth.JWT(
   GOOGLE_CLIENT_EMAIL,
   null,

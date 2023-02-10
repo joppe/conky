@@ -12,10 +12,25 @@
 - Network load up/down
 - Cheatsheet vim/emacs
 
-It look like it that for Google Calendar integration the best language is Python or JavaScript ([nodejs](https://developers.google.com/calendar/api/quickstart/nodejs)).
+### Google Calendar integration
+
+- https://www.geeksforgeeks.org/how-to-integrate-google-calendar-in-node-js/
 
 ## Fonts
 
-- Monofur
 - ProFontIIx Nerd Font Mono
+- FontAwesome for icons
 
+### Resources
+
+- (images)[https://github.com/brndnmtthws/conky/wiki/Using-Lua-scripts-(Part-13)%3A-Useful-functions-and-code#image-display-function]
+
+
+## Todo
+
+- create a widget directory
+- create a lib directory
+- move joppe.lua to lua directory
+
+- cleanup measure text
+- cleanup render image

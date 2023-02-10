@@ -1,12 +1,10 @@
 require 'lua/clock'
 require 'lua/date'
+require 'lua/render'
+require 'lua/system'
 
-local function calendar_widget(cr)
-    local file = io.popen('node ./node/calendar.js')
-    local output = file:read('*a')
-
-    file:close()
-    print(output)
+function show_logo()
+    render_image({ x = 400, y = 400, w = 200, h = 200, file = '/mnt/extra/work/joppe/conky/img/pop-os.png'})
 end
 
 function conky_main()
@@ -24,15 +22,16 @@ function conky_main()
     local cr = cairo_create(cs)
 
 
-    local updates = conky_parse('${updates}')
-    local update_num = tonumber(updates)
+    local updates = tonumber(conky_parse('${updates}'))
 
-    if update_num > 5 then
+    if updates > 5 then
         clock_widget(cr)
         date_widget(cr)
-        calendar_widget(cr)
+        system_widget(cr)
+--        show_logo()
+--        calendar_widget(cr, updates)
     end
-    
+
     cairo_destroy(cr)
     cairo_surface_destroy(cs)
 
