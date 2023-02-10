@@ -26,11 +26,3 @@
 - (images)[https://github.com/brndnmtthws/conky/wiki/Using-Lua-scripts-(Part-13)%3A-Useful-functions-and-code#image-display-function]
 
 
-## Todo
-
-- create a widget directory
-- create a lib directory
-- move joppe.lua to lua directory
-
-- cleanup measure text
-- cleanup render image

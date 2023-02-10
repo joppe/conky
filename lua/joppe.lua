@@ -4,7 +4,11 @@ require 'lua/widget/system'
 require 'lua/lib/render'
 
 function show_logo()
-    render_image({ x = 400, y = 400, w = 200, h = 200, file = '/mnt/extra/work/joppe/conky/img/pop-os.png'})
+    render_image(
+        '/mnt/extra/work/joppe/conky/img/pop-os.png',
+        { x = 400, y = 400 },
+        { width = 200, height = 200 }
+    )
 end
 
 function conky_main()
@@ -28,7 +32,7 @@ function conky_main()
         clock_widget(cr)
         date_widget(cr)
         system_widget(cr)
---        show_logo()
+        show_logo()
 --        calendar_widget(cr, updates)
     end
 

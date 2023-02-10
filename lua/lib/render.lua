@@ -1,43 +1,30 @@
 require 'cairo'
 require 'imlib2'
 
-function render_image(im)
-    x = nil
-	x = (im.x or 0)
-	y = nil
-	y = (im.y or 0)
-	w = nil
-	w = (im.w or 0)
-	h = nil
-	h = (im.h or 0)
-	file = nil
-	file = tostring (im.file)
-	if file == nil then print ("set image file") end
-	---------------------------------------------
-	local show = imlib_load_image (file)
+function render_image(file, position, size)
+    local show = imlib_load_image(file)
 
-	if show == nil then return end
-	imlib_context_set_image (show)
-	if tonumber (w) == 0 then
-		width = imlib_image_get_width ()
-	else
-		width = tonumber (w)
-	end
+    if show == nil then
+        return
+    end
 
-	if tonumber (h) == 0 then
-		height = imlib_image_get_height ()
-	else
-		height = tonumber (h)
-	end
+    imlib_context_set_image(show)
 
-	imlib_context_set_image (show) 
-	local scaled = imlib_create_cropped_scaled_image (0, 0,
-			imlib_image_get_width (), imlib_image_get_height (), width, height) 
-	imlib_free_image ()
-	imlib_context_set_image (scaled)
-	imlib_render_image_on_drawable (x, y)
-	imlib_free_image ()
-	show = nil
+    local scaled = imlib_create_cropped_scaled_image(
+        0,
+        0,
+        imlib_image_get_width(),
+        imlib_image_get_height(),
+        size.width,
+        size.height
+    )
+
+    imlib_free_image()
+    imlib_context_set_image(scaled)
+    imlib_render_image_on_drawable(position.x, position.y)
+    imlib_free_image()
+
+    show = nil
 end
 
 function render_ring(cr, position, radius, thickness, angle, color)
