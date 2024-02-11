@@ -25,4 +25,8 @@
 
 - (images)[https://github.com/brndnmtthws/conky/wiki/Using-Lua-scripts-(Part-13)%3A-Useful-functions-and-code#image-display-function]
 
+### Todo
+
+- table, configure the width of a column instead of calculating
+- render cpu bars
 

@@ -29,6 +29,43 @@ const calendar = google.calendar({
   auth: jwtClient,
 });
 
+const DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const MONTHS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
+function formatDate(date) {
+  if (!date) {
+    return '';
+  }
+
+  const o = new Date(date);
+
+  return `${DAYS[o.getDay()]} ${MONTHS[o.getMonth()]} ${o.getDate()} ${o
+    .getHours()
+    .toString()
+    .padStart(2, '0')}:${o.getMinutes().toString().padStart(2, '0')}`;
+}
+
+function noramilizeEvent(event) {
+  return {
+    summary: event.summary,
+    start: formatDate(event.start.dateTime || event.start.date),
+    end: formatDate(event.end.dateTime || event.end.date),
+  };
+}
+
 calendar.events.list(
   {
     calendarId: GOOGLE_CALENDAR_ID,
@@ -42,7 +79,9 @@ calendar.events.list(
       res.send(JSON.stringify({ error: error }));
     } else {
       if (result.data.items.length) {
-        console.log(JSON.stringify({ events: result.data.items }));
+        console.log(
+          JSON.stringify({ events: result.data.items.map(noramilizeEvent) }),
+        );
       } else {
         console.warn(JSON.stringify({ message: 'No upcoming events found.' }));
       }

@@ -1,80 +1,33 @@
-require 'lua/settings'
-require 'lua/lib/render'
+require("lua/settings")
+require("lua/lib/render")
 
-local function render_table(cr, texts, font, size, position, color, gap)
-    local new_position = { x = position.x, y = position.y }
+function system_widget(cr, x, y)
+	local ram = "󰘚"
+	local cpu = ""
+	local disk = "󰋊"
+	local temp = ""
+	local kernel = ""
 
-    for i in pairs(texts) do
-        local row = texts[i]
-        local dimensions = { width = 0, height = 0 }
+	local texts = {
+		{ cpu, conky_parse("${cpu cpu0}%") },
+		{ ram, conky_parse("${memperc}% of ${memmax}") },
+		{ disk, conky_parse("${fs_used_perc /}% of ${fs_size}") },
+		{ temp, conky_parse("${exec sensors | grep 'Package id' | awk '{print $4}'}") },
+		{ kernel, conky_parse("${kernel}") },
+	}
 
-        for j in pairs(row) do
-            local column = row[j]
+	local configs = {
+		{
+			font = fonts.icon,
+			size = 18,
+			color = hex_to_rgba(colors.highlight, 0.8),
+		},
+		{
+			font = fonts.normal,
+			size = 18,
+			color = hex_to_rgba(colors.normal, 0.8),
+		},
+	}
 
-            dimensions = render_text(
-                cr,
-                column,
-                font,
-                size,
-                new_position,
-                color
-            )
-
-            new_position.x = new_position.x + dimensions.width + gap.x
-        end
-
-        new_position.x = position.x
-        new_position.y = new_position.y + dimensions.height + gap.y
-    end
+	render_table(cr, texts, configs, { x = x, y = y }, { x = 15, y = 15 })
 end
-
-function system_widget(cr)
-    local config = {
-        size = 18,
-        font = fonts.normal,
-        position = {
-            x = 100,
-            y = 186
-        },
-        highlight = {
-            text = 'System',
-            color = colors.highlight,
-            alpha = 0.8
-        },
-        normal = {
-            text = 'Pop!_OS 22.04 LTS x86_64',
-            color = colors.normal,
-            alpha = 0.8
-        }
-    }
-
-    --render_duotone_text(
-    --    cr,
-    --    config.highlight,
-    --    config.normal,
-    --    config.font,
-    --    config.size,
-    --    config.position,
-    --    15
-    --)
-
-
-    local texts = {
-        {'2022-02-08', '09:00', 'JSWorld'},
-        {'2022-02-10', '18:30', 'Zocht S6E01'},
-        {'2022-02-12', '00:00', 'Eline jarig'},
-    }
-    render_table(
-        cr,
-        texts,
-        config.font,
-        config.size,
-        config.position,
-        hex_to_rgba(
-            config.normal.color,
-            config.normal.alpha
-        ),
-        { x = 15, y = 15 }
-    )
-end
-
