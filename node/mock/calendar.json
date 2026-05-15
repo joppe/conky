@@ -1,0 +1,309 @@
+{
+  "events": [
+    {
+      "kind": "calendar#event",
+      "etag": "\"3347574623330000\"",
+      "id": "7ccj7mnmqf372mupt3bo8gvc4d",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=N2Njajdtbm1xZjM3Mm11cHQzYm84Z3ZjNGQgam9wcGVhYXJ0c0Bt",
+      "created": "2023-01-15T12:55:11.000Z",
+      "updated": "2023-01-15T12:55:11.665Z",
+      "summary": "JSWorld Conference",
+      "creator": { "email": "joppeaarts@gmail.com", "self": true },
+      "organizer": { "email": "joppeaarts@gmail.com", "self": true },
+      "start": { "date": "2023-02-08" },
+      "end": { "date": "2023-02-11" },
+      "transparency": "transparent",
+      "iCalUID": "7ccj7mnmqf372mupt3bo8gvc4d@google.com",
+      "sequence": 0,
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3347574801436000\"",
+      "id": "_64q68d9h75hiqc9h6orjce3564mj4c1i68oj4cph64s3ac20chgn8tbde1p6iqrbclp2srjc",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=XzY0cTY4ZDloNzVoaXFjOWg2b3JqY2UzNTY0bWo0YzFpNjhvajRjcGg2NHMzYWMyMGNoZ244dGJkZTFwNmlxcmJjbHAyc3JqYyBqb3BwZWFhcnRzQG0",
+      "created": "2023-01-15T12:56:40.000Z",
+      "updated": "2023-01-15T12:56:40.718Z",
+      "summary": "Zocht S6E01 [Definitieve datum]",
+      "creator": { "email": "joppeaarts@gmail.com", "self": true },
+      "organizer": { "email": "joppeaarts@gmail.com", "self": true },
+      "start": {
+        "dateTime": "2023-02-10T20:00:00+01:00",
+        "timeZone": "Europe/Amsterdam"
+      },
+      "end": {
+        "dateTime": "2023-02-10T21:00:00+01:00",
+        "timeZone": "Europe/Amsterdam"
+      },
+      "iCalUID": "14d519c-116768e1-202212311850@datumprikker.nl",
+      "sequence": 0,
+      "extendedProperties": {
+        "private": { "private:iCalDtStamp": "1672512600000" }
+      },
+      "reminders": { "useDefault": true },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3340721358894000\"",
+      "id": "b9ri98rm5po535ouauftulhdk8_20230212",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=YjlyaTk4cm01cG81MzVvdWF1ZnR1bGhkazhfMjAyMzAyMTIgam9wcGVhYXJ0c0Bt",
+      "created": "2009-01-26T19:58:34.000Z",
+      "updated": "2022-12-06T21:04:39.447Z",
+      "summary": "Eline Jarig",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-02-12" },
+      "end": { "date": "2023-02-13" },
+      "recurringEventId": "b9ri98rm5po535ouauftulhdk8",
+      "originalStartTime": { "date": "2023-02-12" },
+      "iCalUID": "b9ri98rm5po535ouauftulhdk8@google.com",
+      "sequence": 0,
+      "attendees": [
+        {
+          "email": "joppe@apestaartje.info",
+          "responseStatus": "tentative"
+        }
+      ],
+      "extendedProperties": {
+        "shared": {
+          "gcaldaemon-categories": "Birthday",
+          "gcaldaemon-uid": "KOrganizer-1993100440.602"
+        }
+      },
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3347198808254000\"",
+      "id": "54nh2jkualevemmaffp99l7evc",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NTRuaDJqa3VhbGV2ZW1tYWZmcDk5bDdldmMgam9wcGVhYXJ0c0Bt",
+      "created": "2023-01-13T08:43:24.000Z",
+      "updated": "2023-01-13T08:43:24.127Z",
+      "summary": "LADC",
+      "creator": { "email": "joppeaarts@gmail.com", "self": true },
+      "organizer": { "email": "joppeaarts@gmail.com", "self": true },
+      "start": {
+        "dateTime": "2023-02-17T18:00:00+01:00",
+        "timeZone": "Europe/Brussels"
+      },
+      "end": {
+        "dateTime": "2023-02-17T23:30:00+01:00",
+        "timeZone": "Europe/Brussels"
+      },
+      "iCalUID": "54nh2jkualevemmaffp99l7evc@google.com",
+      "sequence": 0,
+      "reminders": { "useDefault": true },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2847451634798000\"",
+      "id": "illhpfsp16m8p05lvk0nk9c0ak_20230224",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aWxsaHBmc3AxNm04cDA1bHZrMG5rOWMwYWtfMjAyMzAyMjQgam9wcGVhYXJ0c0Bt",
+      "created": "2014-03-01T19:18:56.000Z",
+      "updated": "2015-02-12T07:23:37.399Z",
+      "summary": "Xander Jarig",
+      "description": " ",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-02-24" },
+      "end": { "date": "2023-02-25" },
+      "recurringEventId": "illhpfsp16m8p05lvk0nk9c0ak",
+      "originalStartTime": { "date": "2023-02-24" },
+      "iCalUID": "illhpfsp16m8p05lvk0nk9c0ak@google.com",
+      "sequence": 0,
+      "extendedProperties": {
+        "shared": {
+          "X-MOZ-LASTACK": "2014-03-03T08:04:00Z",
+          "X-GOOGLE-SNOOZE-RECUR": "{}"
+        }
+      },
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3340721068642000\"",
+      "id": "ichv4i5vah4fppk022qb3o7r0k_20230318",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aWNodjRpNXZhaDRmcHBrMDIycWIzbzdyMGtfMjAyMzAzMTggam9wcGVhYXJ0c0Bt",
+      "created": "2010-06-26T11:59:01.000Z",
+      "updated": "2022-12-06T21:02:14.321Z",
+      "summary": "Wouter Jarig",
+      "description": " ",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-03-18" },
+      "end": { "date": "2023-03-19" },
+      "recurringEventId": "ichv4i5vah4fppk022qb3o7r0k",
+      "originalStartTime": { "date": "2023-03-18" },
+      "transparency": "transparent",
+      "iCalUID": "ichv4i5vah4fppk022qb3o7r0k@google.com",
+      "sequence": 1,
+      "extendedProperties": {
+        "shared": {
+          "X-MOZ-LASTACK": "2012-03-19T08:19:41Z",
+          "X-GOOGLE-SNOOZE-RECUR": "({})"
+        }
+      },
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3340721182728000\"",
+      "id": "pns3bub9fegs0tjagtpr1ib758_20230321",
+      "status": "tentative",
+      "htmlLink": "https://www.google.com/calendar/event?eid=cG5zM2J1YjlmZWdzMHRqYWd0cHIxaWI3NThfMjAyMzAzMjEgam9wcGVhYXJ0c0Bt",
+      "created": "2011-03-21T22:54:53.000Z",
+      "updated": "2022-12-06T21:03:11.364Z",
+      "summary": "José jarig",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-03-21" },
+      "end": { "date": "2023-03-22" },
+      "recurringEventId": "pns3bub9fegs0tjagtpr1ib758",
+      "originalStartTime": { "date": "2023-03-21" },
+      "iCalUID": "pns3bub9fegs0tjagtpr1ib758@google.com",
+      "sequence": 1,
+      "attendees": [
+        {
+          "email": "joppeaarts@gmail.com",
+          "displayName": "Joppe Aarts",
+          "organizer": true,
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3340721201580000\"",
+      "id": "hfdh222mf5hjqpq4atk22abt5k_20230322",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=aGZkaDIyMm1mNWhqcXBxNGF0azIyYWJ0NWtfMjAyMzAzMjIgam9wcGVhYXJ0c0Bt",
+      "created": "2010-06-26T11:59:25.000Z",
+      "updated": "2022-12-06T21:03:20.790Z",
+      "summary": "Matthias Jarig",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-03-22" },
+      "end": { "date": "2023-03-23" },
+      "recurringEventId": "hfdh222mf5hjqpq4atk22abt5k",
+      "originalStartTime": { "date": "2023-03-22" },
+      "transparency": "transparent",
+      "iCalUID": "hfdh222mf5hjqpq4atk22abt5k@google.com",
+      "sequence": 0,
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3340721313208000\"",
+      "id": "n11fhe8ppg1gvqqnlus17be8pc_20230322",
+      "status": "tentative",
+      "htmlLink": "https://www.google.com/calendar/event?eid=bjExZmhlOHBwZzFndnFxbmx1czE3YmU4cGNfMjAyMzAzMjIgam9wcGVhYXJ0c0Bt",
+      "created": "2010-05-01T07:20:30.000Z",
+      "updated": "2022-12-06T21:04:16.604Z",
+      "summary": "Lily jarig",
+      "creator": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "organizer": {
+        "email": "joppeaarts@gmail.com",
+        "displayName": "Joppe Aarts",
+        "self": true
+      },
+      "start": { "date": "2023-03-22" },
+      "end": { "date": "2023-03-23" },
+      "recurringEventId": "n11fhe8ppg1gvqqnlus17be8pc",
+      "originalStartTime": { "date": "2023-03-22" },
+      "iCalUID": "n11fhe8ppg1gvqqnlus17be8pc@google.com",
+      "sequence": 1,
+      "attendees": [
+        {
+          "email": "joppeaarts@gmail.com",
+          "displayName": "Joppe Aarts",
+          "organizer": true,
+          "self": true,
+          "responseStatus": "accepted"
+        }
+      ],
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3289384257034000\"",
+      "id": "64p6cc1gcoqj4bb4chgj0b9k6gp3cbb2c9gmab9n61gj0dhp68r6ce336k_20230403",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=NjRwNmNjMWdjb3FqNGJiNGNoZ2owYjlrNmdwM2NiYjJjOWdtYWI5bjYxZ2owZGhwNjhyNmNlMzM2a18yMDIzMDQwMyBqb3BwZWFhcnRzQG0",
+      "created": "2022-02-12T18:55:28.000Z",
+      "updated": "2022-02-12T18:55:28.517Z",
+      "summary": "Evan",
+      "creator": { "email": "joppeaarts@gmail.com", "self": true },
+      "organizer": { "email": "joppeaarts@gmail.com", "self": true },
+      "start": { "date": "2023-04-03" },
+      "end": { "date": "2023-04-04" },
+      "recurringEventId": "64p6cc1gcoqj4bb4chgj0b9k6gp3cbb2c9gmab9n61gj0dhp68r6ce336k",
+      "originalStartTime": { "date": "2023-04-03" },
+      "transparency": "transparent",
+      "iCalUID": "64p6cc1gcoqj4bb4chgj0b9k6gp3cbb2c9gmab9n61gj0dhp68r6ce336k@google.com",
+      "sequence": 0,
+      "reminders": { "useDefault": false },
+      "eventType": "default"
+    }
+  ]
+}

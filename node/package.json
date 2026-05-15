@@ -1,0 +1,30 @@
+{
+  "name": "conky",
+  "version": "1.0.0",
+  "description": "## Blocks",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joppe/conky.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joppe/conky/issues"
+  },
+  "homepage": "https://github.com/joppe/conky#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "googleapis": "^105.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.4"
+  }
+}
